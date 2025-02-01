@@ -10,8 +10,17 @@
   "author": "Mathew Li",
   "license": "ISC",
   "dependencies": {
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.3.3",
     "parcel": "^2.13.3"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathewli7/assignment-1-job-search-app-mathewli7-main.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mathewli7/assignment-1-job-search-app-mathewli7-main/issues"
+  },
+  "homepage": "https://github.com/mathewli7/assignment-1-job-search-app-mathewli7-main#readme"
 }
