@@ -7,6 +7,8 @@ import { getJobList } from './api/jobs'
 
 import { renderJobListItem } from './dom/getJobList'
 
+import {renderJobListFiltered} from './dom/getJobList'
+
 // import {filterJobList} from '.api/jobs'
 
 // variables 
@@ -49,5 +51,17 @@ jobSearchQuery.addEventListener("submit", (event) => {
 
     let searchQuery = event.target.elements["query"]
 
-    renderJobListFiltered(searchQuery, jobListFlitered)
+    renderJobListFiltered(searchQuery, jobList)
 })
+
+jobListElement.addEventListener("click", async (event) => {
+
+    event.preventDefault()
+
+    let searchText = event.target.elements["query"]
+
+    renderJobListFiltered(searchText, jobList)
+
+})
+
+
