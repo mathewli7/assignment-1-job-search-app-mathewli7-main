@@ -1,3 +1,5 @@
+import { getJobList } from "../api/jobs"
+
 const renderJobListItem = (jobData, element) => {
 
   
@@ -20,3 +22,23 @@ const renderJobListItem = (jobData, element) => {
 
 // export that function
 export { renderJobListItem }
+
+
+const displayFilteredJobs = (searchText, jobList) => {
+  let jobListElement = document.querySelector("#searched-jobs")
+
+  jobListElement.innerHTML = ""
+
+
+  jobList.then(jobListArray => {
+
+    let jobListFlitered = jobListArray.filter(jobDataItems => {
+
+      let jobTitleLowercase = jobDataItems.title.toLowerCase()
+      let jobDescriptionLowercase = jobDataItems.description.toLowerCase()
+      let searchTextLowercase = searchText.value.toLowerCase()
+
+      return jobTitleLowercase.includes(searchTextLowercase) || jobDescriptionLowercase.includes(searchTextLowercase)
+    })
+  })
+}

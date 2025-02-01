@@ -7,16 +7,23 @@ import { getJobList } from './api/jobs'
 
 import { renderJobListItem } from './dom/getJobList'
 
-let viewJobClick = document.querySelector("#job-details-card")
-let jobSearch = document.querySelector("#searched-jobs")
+// import {filterJobList} from '.api/jobs'
 
-jobSearch.addEventListener("submit", (event) => {
-    let searchInput = searchForm.elements["search"]
-    console.log(searchInput.value)
-})
+// variables 
+let jobList = []
+jobList = getJobList()
 
 
+let jobDetails = document.querySelector("#job-details-card")
+let jobListElement = document.querySelector("#searched-jobs")
+let jobSearchQuery = document.querySelector("#searched-jobs-form")
 
+
+
+
+
+
+// This displays the lisitngs on the page 
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -29,24 +36,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         )
     })
 
-    // Add event listener
-    let viewJob = document.querySelector(".view-job-button")
-    viewJob.addEventListener("click", (event) => {
-        event.preventDefault
-        console.log("click")
-        // confirmed class was targeted
-
-        if(viewJobClick === "View Job") {
-                event.target.innerText
-                
-        }
+})
 
 
+// Search Function
 
-        // let data = await getJobList()
-        // data.map((dataID) => {
+// Adding the event listener for the search 
+jobSearchQuery = document.querySelector("#search-jobs-form")
+jobSearchQuery.addEventListener("submit", (event) => {
 
-        // })
+    event.preventDefault()
 
-    })
+    let searchQuery = event.target.elements["query"]
+
+    renderJobListFiltered(searchQuery, jobListFlitered)
 })
